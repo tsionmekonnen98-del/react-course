@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        .old{
+            text-decoration: line-through;
+            text-decoration-thickness: 3px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="contain"></div>
+     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+  const web = <div>
+  <p>Cotton socks</p>
+  <p className="old">Price:$10.90</p>
+  <p>discount price: $5.45</p>
+  <button>Add to Cart</button>
+  </div>
+  const container = document.querySelector('.contain');
+  ReactDOM.createRoot(container).render(web);
+    </script>
+</body>
+</html>

@@ -16,9 +16,15 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-        const date = dayjs().format('MMMM D'); const NewDate =
-        <p>Today is {date}</p>; const time = dayjs().format('HH:mm:ss'); const NewTime =
-        <p>Current time:{time}</p>
+        const date = dayjs().format('MMMM D'); 
+        const NewDate =<p>
+            Today is {date}
+            </p>;
+         const time = dayjs().format('HH:mm:ss'); 
+         const NewTime =
+        <p>
+            Current time:{time}
+            </p>
 
         console.log(dayjs().format('YYYY-M-D')); const container = document.querySelector('.js-container'); ReactDOM.createRoot(container).render(NewDate); const contain = document.querySelector('.js-contain'); ReactDOM.createRoot(contain).render(NewTime);
 
