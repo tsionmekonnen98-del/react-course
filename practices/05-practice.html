@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer{
+            border: none;
+        }
+        button{
+            border-radius: 3px;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain"></div>
+     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+   function App(){
+    const [count, setCount ]= React.useState(0);
+    const [counts, setCounts ]= React.useState(0);
+    const [time, setTime] = React.useState('time');
+     const [times, setTimes] = React.useState('time');
+   
+function saveTime(){
+    setCount(count + 1);
+   if(time === 'time'){
+    setTime(time + 's');
+   }
+}
+function saveTimes(){
+    setCounts(counts + 1);
+   if(times === 'time'){
+    setTimes(times + 's');
+   }
+}
+function clear (){
+    setCounts(0);
+    setTimes('time');
+    setCount(0);
+    setTime('time');
+}
+return (
+    <>
+
+ <button onClick = {saveTime}>
+    clicked {count} {time}
+    </button>
+    <button onClick = {saveTimes}>
+    clicked {counts} {times}
+    </button>
+    <button onClick = {clear}>Reset</button>
+
+</>
+);
+    
+
+
+   }
+const container = document.querySelector('.contain');
+ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+</html>

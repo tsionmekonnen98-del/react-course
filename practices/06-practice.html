@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="submit"></div>
+     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+  function App(){
+ const [input, setInput] = React.useState('');
+function saveInput(event){
+setInput (event.target.value);
+}
+
+ return (
+    <>
+    <input type="text" placeholder="type your name here" onChange = {saveInput} />
+    <p>Hello {input}</p>
+    </>
+ );
+
+  }
+
+function NameForm(){
+    const [name, setName ]=React.useState('');
+function saveName(event){
+setName(event.target.value);
+}
+function clears(){
+    setName('');
+}
+function instance(){
+    setName('Alice');
+
+}
+return(
+    <>
+<input type="text" placeholder ="type your name" onChange = {saveName} value ={name} />
+<button onClick ={clears}>Reset</button>
+<button onClick={instance}>Example</button>
+<p>Hello {name}</p>
+</>
+);
+
+}
+
+
+  const contain = document.querySelector('.container');
+ReactDOM.createRoot(contain).render(<App />);
+const submit = document.querySelector('.submit');
+ReactDOM.createRoot(submit).render(<NameForm />)
+
+    </script>
+</body>
+</html>
