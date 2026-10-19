@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:90vh;
+}
+
+        p {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+         font-family: Arial;
+         font-weight: bold;
+         font-size: 3.5rem;
+         color: rgb(65, 163, 170);
+      
+        }
+
+.typing {
+  display: flex;
+  gap: 6px;
+  padding: 12px;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  background: #777;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="timeCounter"></div>
+    <div class="chatBot"></div>
+     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+  function App(){
+    const [time, setTime] = React.useState(dayjs().format('HH:mm:ss'));
+
+   React.useEffect(()=>{
+const timer = setInterval (()=>{
+    setTime(dayjs().format('HH:mm:ss'));
+},1000);
+  return ()=> clearInterval(timer);
+   },[]);
+    return(
+        <>
+        <p>{time}</p>
+        
+        </>
+    )
+  }
+
+ 
+  
+
+  
+function Apps() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <div className="typing">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      ) : (
+        <p>Hello! How can I help you?</p>
+      )}
+    </>
+  );
+}
+
+
+  const container = document.querySelector('.timeCounter');
+  ReactDOM.createRoot(container).render(<App />);
+
+ const contain = document.querySelector('.chatBot');
+ ReactDOM.createRoot(contain).render(<Apps />);
+
+    </script>
+
+</body>
+</html>

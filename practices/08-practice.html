@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .studentForm{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        input{
+            width: 270px;
+
+        }
+        .buttons{
+            display: flex;
+           gap: 10px;
+        }
+        button{
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(28, 142, 218);
+            color: white;
+        }
+        .password{
+            display: flex;
+            margin-top: 20px;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="studentForm"></div>
+    <div class="password"></div>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function App(){
+            return(
+                <>
+                <h1>Hello, welcome to my website</h1>
+                <input type="text" placeholder ="Email"  />
+                <input type="text" placeholder = "Password" />
+                <div className = "buttons">
+                    <button>Login</button>
+                <button>Sign up</button>
+                    
+                    </div>
+                
+                
+                </>
+            )
+        }
+
+        function Apps (){
+         const [input, setInput] = React.useState();
+         const [show, setShow]= React.useState('show');
+        function showPassword(){
+            if(show ==='show'){
+                setInput(true);
+                setShow('hide');
+            }else{
+                setInput(false);
+                setShow('show');
+
+            }
+        }
+
+
+            return(
+                <>
+            <input type={input ? 'text' : 'password'} placeholder ="Enter password"  />
+
+            <button onClick = {showPassword}>{show}</button>
+            
+            </>
+        );
+        }
+     
+        const container = document.querySelector('.studentForm');
+        ReactDOM.createRoot(container).render(<App />);
+
+ const contain = document.querySelector('.password');
+        ReactDOM.createRoot(contain).render(<Apps />);
+    </script>
+</body>
+</html>
